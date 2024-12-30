@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compte à rebours - Nouvel An 2025</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #282c34;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            margin-top: 50px;
+        }
+        #countdown {
+            font-size: 2rem;
+            margin-top: 20px;
+        }
+        footer {
+            margin-top: 50px;
+            font-size: 1.2rem;
+            color: #f39c12;
+        }
+    </style>
+</head>
+<body>
+    <h1>Compte à rebours jusqu'à la nouvelle année 2025 🎉</h1>
+    <div id="countdown"></div>
+    <footer>Gildas vous souhaite les meilleurs vœux</footer>
+
+    <script>
+        function updateCountdown() {
+            const now = new Date();
+            const newYear = new Date('January 1, 2025 00:00:00');
+            const diff = newYear - now;
+
+            if (diff <= 0) {
+                document.getElementById('countdown').innerHTML = "Bonne année 2025 ! 🎉";
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').innerHTML = 
+                `${days} jours, ${hours} heures, ${minutes} minutes, ${seconds} secondes`;
+        }
+
+        // Met à jour le compte à rebours chaque seconde
+        setInterval(updateCountdown, 1000);
+    </script>
+
+</body></html>
